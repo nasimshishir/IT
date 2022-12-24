@@ -14,6 +14,7 @@ export default function Home() {
         <nav className='h-20 bg-slate-900 py-5 flex items-center'>
           <div className='container mx-auto'>
             <Link href="/products" className='px-10 py-3 border border-opacity-10 text-white'>Products</Link>
+            <Link href="/login" className='px-10 py-3 border border-opacity-10 text-white'>Login</Link>
           </div>
         </nav>
       </main>

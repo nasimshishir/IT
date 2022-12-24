@@ -1,68 +1,22 @@
+import CategoriesCheckBox from "./CategoriesCheckBox";
 
-const Searchfilter = () => {
+const Searchfilter = ({ handleCategoryQuery, categories, handleNameQuery, handleChildren, categoryQuery }) => {
+
+
    return (
-      <div className="container mx-auto flex mt-10">
-         <div className="px-10">
-            <input type="checkbox" className="mx-2" />
-            <span>All Category</span>
-         </div>
-         <div className="px-10">
-            <input type="checkbox" className="mx-2" />
-            <span>Mobile</span>
-            <div className="ml-3">
-               <div>
-                  <input type="checkbox" className="mx-2" />
-                  <span>Apple</span>
-               </div>
-               <div>
-                  <input type="checkbox" className="mx-2" />
-                  <span>Samsung</span>
-               </div>
-               <div>
-                  <input type="checkbox" className="mx-2" />
-                  <span>OnePlus</span>
-               </div>
-            </div>
-         </div>
-         <div className="px-10">
-            <input type="checkbox" className="mx-2" />
-            <span>Laptop</span>
-            <div className="ml-3">
-               <div>
-                  <input type="checkbox" className="mx-2" />
-                  <span>Apple</span>
-               </div>
-               <div>
-                  <input type="checkbox" className="mx-2" />
-                  <span>Dell</span>
-               </div>
-               <div>
-                  <input type="checkbox" className="mx-2" />
-                  <span>HP</span>
-               </div>
-            </div>
-         </div>
-         <div className="px-10">
-            <input type="checkbox" className="mx-2" />
-            <span>Bike</span>
-            <div className="ml-3">
-               <div>
-                  <input type="checkbox" className="mx-2" />
-                  <span>BMW</span>
-               </div>
-               <div>
-                  <input type="checkbox" className="mx-2" />
-                  <span>Suzuki</span>
-               </div>
-               <div>
-                  <input type="checkbox" className="mx-2" />
-                  <span>Yamaha</span>
-               </div>
-            </div>
-         </div>
+      <div className="container mx-auto flex flex-wrap mt-10">
+         {
+            categories.map(category => <CategoriesCheckBox
+               key={ category._id }
+               category={ category }
+               handleCategoryQuery={ handleCategoryQuery }
+               handleChildren={ handleChildren }
+               categoryQuery={ categoryQuery }
+            ></CategoriesCheckBox>)
+         }
          <div>
             <div>
-               <input type="text" className="border rounded-md mx-3" />
+               <input onChange={ (e) => handleNameQuery(e) } type="text" className="border rounded-md mx-3 p-2" />
                <span>Search</span>
             </div>
          </div>
