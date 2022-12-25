@@ -5,10 +5,10 @@ const CategoriesCheckBox = ({ category, handleCategoryQuery, handleChildren, cat
    const [isParentChecked, setIsParentChecked] = useState(false);
 
    return (
-      <div>
+      <div className="py-5">
          <div className="px-10">
-            <input onChange={ (e) => { handleChildren(e, children); setIsParentChecked(!isParentChecked) } } type="checkbox" checked={ isParentChecked ? 'checked' : '' } className="mx-2" />
-            <span>{ name }</span>
+            <input onChange={ (e) => { handleChildren(e, children); setIsParentChecked(!isParentChecked) } } type="checkbox" checked={ isParentChecked ? 'checked' : '' } className="mx-2" id={ `parent-${_id}` } />
+            <label className="cursor-pointer" for={ `parent-${_id}` }>{ name }</label>
          </div>
          <div className="ml-3">
             {
@@ -19,8 +19,9 @@ const CategoriesCheckBox = ({ category, handleCategoryQuery, handleChildren, cat
                      value={ child._id }
                      name={ name }
                      className="mx-2"
+                     id={ `child-${child._id}` }
                   />
-                  <span>{ child.name }</span>
+                  <label for={ `child-${child._id}` } className="cursor-pointer">{ child.name }</label>
                </div>)
             }
          </div>

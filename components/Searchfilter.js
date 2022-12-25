@@ -4,7 +4,7 @@ const Searchfilter = ({ handleCategoryQuery, categories, handleNameQuery, handle
 
 
    return (
-      <div className="container mx-auto flex flex-wrap mt-10">
+      <div className="container mx-auto flex flex-wrap justify-evenly mt-10">
          {
             categories.map(category => <CategoriesCheckBox
                key={ category._id }
